@@ -1,18 +1,28 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import IbanInput from ".";
+import { Provider } from "react-redux";
+import store from "../../../store/store";
 
 describe("IbanInput", () => {
   let rendered;
   it("renders as expected", () => {
-    rendered = shallow(<IbanInput />);
+    rendered = mount(
+      <Provider store={store}>
+        <IbanInput />
+      </Provider>
+    );
     expect(rendered.html()).toMatchSnapshot();
     expect(rendered.contains(<label htmlFor="iban">IBAN</label>)).toBe(true);
     expect(rendered.find("TextField")).toHaveLength(1);
   });
 
   it("renders as expected", () => {
-    rendered = mount(<IbanInput />);
+    rendered = mount(
+      <Provider store={store}>
+        <IbanInput />
+      </Provider>
+    );
 
     expect(rendered.find("input")).toHaveLength(1);
 
