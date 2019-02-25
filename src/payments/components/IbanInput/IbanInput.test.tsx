@@ -8,7 +8,7 @@ describe("IbanInput", () => {
     rendered = shallow(<IbanInput />);
     expect(rendered.html()).toMatchSnapshot();
     expect(rendered.contains(<label htmlFor="iban">IBAN</label>)).toBe(true);
-    expect(rendered.find('TextField')).toHaveLength(1);
+    expect(rendered.find("TextField")).toHaveLength(1);
   });
 
   it("renders as expected", () => {
@@ -27,6 +27,15 @@ describe("IbanInput", () => {
     rendered
       .find("input")
       .simulate("change", { target: { value: "customvalue" } });
-      expect(rendered.find("p").html()).toBe("<p class=\"iban-value\">customvalue</p>");
-    });
+    expect(rendered.find(".iban-value").html()).toBe(
+      '<p class="iban-value">customvalue</p>'
+    );
+
+    rendered
+      .find("input")
+      .simulate("change", { target: { value: "AT61 1904 3002 3457 1234" } });
+    expect(rendered.find(".iban-valid").html()).toBe(
+      '<p class="iban-valid">true</p>'
+    );
+  });
 });
