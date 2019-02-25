@@ -23,7 +23,6 @@ class IbanInput extends Component<IbanInputProps> {
     const value = event.target.value;
 
     this.props.setIban(value)
-    this.props.setValid(validateIbanFormat(event.target.value))
   };
 
   render() {

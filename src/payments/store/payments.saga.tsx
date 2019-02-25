@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, throttle } from "redux-saga/effects";
 
 import actions, { SET_IBAN } from "./payments.actions";
 import { validateIbanChecksum } from "../services/payments.service";
@@ -15,7 +15,7 @@ export function* validateIban({ payload }: { payload: string }) {
 }
 
 export function* watchIban() {
-  yield takeEvery(SET_IBAN, validateIban);
+  yield throttle<any>(500, SET_IBAN, validateIban);
 }
 
 export const saga = {

@@ -30,6 +30,7 @@
     "start:server": "node api/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:e2e": "npx testcafe chrome e2e/*.test.ts",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,6 +46,7 @@
     "@types/enzyme": "^3.9.0",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.9.1"
+    "enzyme-adapter-react-16": "^1.9.1",
+    "testcafe": "^1.0.1"
   }
 }

@@ -20,7 +20,7 @@ function validateIbanChecksum(iban) {
 
 const IbanController = {
   validateIbanChecksum: (req, res) => {
-    const delay = Math.floor((Math.random() * 1000) + 500)
+    const delay = Math.floor((Math.random() * 500) + 100)
     console.log("validateIbanChecksum: ", req.params.iban, delay);
     setTimeout(() => {
       res.status(200).send({
